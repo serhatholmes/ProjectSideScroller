@@ -22,6 +22,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        Jumping();
+    }
+
+    public void Jumping(){
         // check the ground for so that there are no multiple jumps
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
@@ -39,7 +43,6 @@ public class Player : MonoBehaviour
             isJump = true;
         }
     }
-
     //to decide based on the tag of the place where it interacts
     void OnCollisionEnter2D(Collision2D other){
         if(other.gameObject.CompareTag("Platform")){
