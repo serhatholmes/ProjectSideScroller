@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class GameManager : MonoBehaviour
 {
     public Player player;
@@ -9,9 +10,12 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public Text endScoreText;
     public GameObject restartPanel;
+    public GameObject startPanel;
     void Start()
     {
         restartPanel.SetActive(false);
+        startPanel.SetActive(true);
+        Time.timeScale = 0;
     }
     void Update()
     {
@@ -31,5 +35,10 @@ public class GameManager : MonoBehaviour
         player.isDead = false;
         Time.timeScale = 1;
         restartPanel.SetActive(false);
+    }
+
+    public void StartGame(){
+        startPanel.SetActive(false);
+        Time.timeScale = 1;
     }
 }
